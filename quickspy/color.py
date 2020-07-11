@@ -1,4 +1,4 @@
-def RED(str):
-    print(f'\033[0;31;m{str}\033[0m')
+def RED(text):
+    print(f'\033[0;31;m{text}\033[0m')
 
 
