@@ -7,9 +7,8 @@ nengine=Netengine()
 
 
 async def main():
-    async with aiohttp.ClientSession() as session:
-        html = await nengine.get('http://www.baidu.com')
-        print(html.text())
+    html = await nengine.fetch('http://bilibili.com')
+    print(html)
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
