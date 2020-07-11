@@ -2,12 +2,14 @@ import aiohttp
 import asyncio
 
 from quickspy.netengine import Netengine
+from quickspy.msgengine import Qssclient
+from quickspy.color import *
 
 nengine=Netengine()
 
 
 async def main():
-    html = await nengine.fetch('http://bilibili.com')
+    html = await nengine.get('http://bilibili.com')
     print(html)
 
 if __name__ == '__main__':
