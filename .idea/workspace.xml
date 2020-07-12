@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a559df00-f2ab-45ef-9c4c-1c9331f8a50f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/quickspy/item/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quickspy/item/item.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qs-engine/gen_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/qs-engine/gen_engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qs-engine/spiders.py" beforeDir="false" afterPath="$PROJECT_DIR$/qs-engine/spiders.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/qss/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/qss/dao_mongo.py" beforeDir="false" afterPath="$PROJECT_DIR$/qss/dao_mongo.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -73,11 +71,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/quickspy/item/item.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="19">
               <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/qss/dao_mongo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,9 +135,9 @@
         <option value="$PROJECT_DIR$/quickspy/net/net.py" />
         <option value="$PROJECT_DIR$/quickspy/net/netengine.py" />
         <option value="$PROJECT_DIR$/qs-engine/gen_engine.py" />
-        <option value="$PROJECT_DIR$/qss/dao_mongo.py" />
         <option value="$PROJECT_DIR$/qs-engine/spiders.py" />
         <option value="$PROJECT_DIR$/quickspy/item/item.py" />
+        <option value="$PROJECT_DIR$/qss/dao_mongo.py" />
       </list>
     </option>
   </component>
@@ -298,12 +308,12 @@
       <workItem from="1594471116471" duration="10174000" />
       <workItem from="1594521516772" duration="9092000" />
       <workItem from="1594535439007" duration="693000" />
-      <workItem from="1594546794284" duration="11966000" />
+      <workItem from="1594546794284" duration="12357000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38885000" />
+    <option name="totallyTimeSpent" value="39276000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -318,8 +328,8 @@
     <frame x="-6" y="0" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4950166" visible="true" weight="0.19288956" />
-      <window_info id="Structure" order="1" sideWeight="0.50498337" side_tool="true" weight="0.19288956" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4939394" visible="true" weight="0.19288956" />
+      <window_info id="Structure" order="1" sideWeight="0.5060606" side_tool="true" weight="0.19288956" />
       <window_info id="Favorites" order="2" sideWeight="0.50498337" side_tool="true" weight="0.19288956" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
@@ -565,13 +575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qss/dao_mongo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/qs-engine/spiders.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -625,6 +628,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qss/dao_mongo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
