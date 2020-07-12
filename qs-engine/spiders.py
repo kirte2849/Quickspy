@@ -1,3 +1,6 @@
+from lxml import etree
+
+
 class Spider:
     def __init__(self, qs):
         self.netengine = qs.netengine
@@ -5,7 +8,7 @@ class Spider:
         pass
 
     def parse(self, response):
-        return(response)
+        return(etree.HTML(response).xpath('//title/text()')[0])
         pass
 
     def get_url(self):

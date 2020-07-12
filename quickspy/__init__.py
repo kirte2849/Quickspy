@@ -1,21 +1,23 @@
 from quickspy.color import *
 from quickspy.msgengine import Qssclient
-from quickspy.util import Database
+from quickspy.netengine import Netengine
+
+
+from quickspy.spider_agent import SpiderAgent
+
 
 class Quickspy:
-    def __init__(self, netengine, url_poll):
+    def __init__(self, netengine, url_pool):
         self.netengine = netengine
-        self.url_poll = url_poll
+        self.url_pool = url_pool
         pass
 
 
 #need add some exception to solve **kwargs
 #@arise Database_argument_Error
-def start_qsp(*args, **kwargs):
-    '''start_qsp(Database | [host='localhost', port = 29727])'''
-    if not type(*args[0]) is Database:
-        db = Database(kwargs[0], kwargs[1])
-    else;
-        db = arq[0]
-    qsp = Quickspy()
+def start_qsp(settings):
+    '''start_qsp()'''
+    url_pool = Qssclient()
+    netengine = Netengine()
+    qsp = Quickspy(netengine, url_pool)
     return qsp
