@@ -5,9 +5,11 @@ from quickspy.net import Response
 
 class Netengine:
     def __init__(self):
-        pass
+        self.session = aiohttp.ClientSession()
+
+    async def close(self):
+        await self.session.close()
 
     async def get(self, url):
-        session = async aiohttp.ClientSession()
-            async with session.get(url) as response:
-                return Response(response)
+         response = await self.session.get(url)
+         return Response(response)

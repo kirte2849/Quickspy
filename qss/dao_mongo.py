@@ -7,7 +7,7 @@ class Client:
         pass
 
     def rget(self, num = 1):
-        """get items randomly"""
+    """get items randomly"""
         pass
 
     def re(self, exp):

@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a559df00-f2ab-45ef-9c4c-1c9331f8a50f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/quickspy/net/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quickspy/net/net.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/qs-engine/gen_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/qs-engine/gen_engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qs-engine/spiders.py" beforeDir="false" afterPath="$PROJECT_DIR$/qs-engine/spiders.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/qss/dao_mongo.py" beforeDir="false" afterPath="$PROJECT_DIR$/qss/dao_mongo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickspy/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickspy/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickspy/netengine.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickspy/net/netengine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickspy/spider_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickspy/spider_agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickspy/net/netengine.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickspy/net/netengine.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +15,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/quickspy$spokeman.coverage" NAME="spokeman Coverage Results" MODIFIED="1594467314789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/quickspy" />
-    <SUITE FILE_PATH="coverage/quickspy$gen_engine.coverage" NAME="gen_engine Coverage Results" MODIFIED="1594554995107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qs-engine" />
+    <SUITE FILE_PATH="coverage/quickspy$gen_engine.coverage" NAME="gen_engine Coverage Results" MODIFIED="1594558644565" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qs-engine" />
     <SUITE FILE_PATH="coverage/quickspy$spider_agent.coverage" NAME="spider_agent Coverage Results" MODIFIED="1594529304697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/quickspy" />
   </component>
   <component name="FavoritesManager">
@@ -51,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/quickspy/net/netengine.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
-              <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+              <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -77,23 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/quickspy/net/net.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/qs-engine/gen_engine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="72">
+              <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -110,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qss/dao_mongo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+            <state relative-caret-position="190">
+              <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -164,15 +146,15 @@
         <option value="$PROJECT_DIR$/qs-engine/settings.py" />
         <option value="$PROJECT_DIR$/quickspy/exam/spider_agent.py" />
         <option value="$PROJECT_DIR$/quickspy/spiders.py" />
-        <option value="$PROJECT_DIR$/qs-engine/gen_engine.py" />
         <option value="$PROJECT_DIR$/quickspy/msgengine.py" />
         <option value="$PROJECT_DIR$/quickspy/__init__.py" />
         <option value="$PROJECT_DIR$/quickspy/net/__init__.py" />
         <option value="$PROJECT_DIR$/qs-engine/spiders.py" />
         <option value="$PROJECT_DIR$/quickspy/spider_agent.py" />
         <option value="$PROJECT_DIR$/quickspy/net/net.py" />
-        <option value="$PROJECT_DIR$/quickspy/net/netengine.py" />
         <option value="$PROJECT_DIR$/qss/dao_mongo.py" />
+        <option value="$PROJECT_DIR$/quickspy/net/netengine.py" />
+        <option value="$PROJECT_DIR$/qs-engine/gen_engine.py" />
       </list>
     </option>
   </component>
@@ -344,12 +326,12 @@
       <workItem from="1594471116471" duration="10174000" />
       <workItem from="1594521516772" duration="9092000" />
       <workItem from="1594535439007" duration="693000" />
-      <workItem from="1594546794284" duration="9238000" />
+      <workItem from="1594546794284" duration="10913000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36157000" />
+    <option name="totallyTimeSpent" value="37832000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -364,12 +346,12 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4950166" visible="true" weight="0.19288956" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4950166" visible="true" weight="0.19288956" />
       <window_info id="Structure" order="1" sideWeight="0.50498337" side_tool="true" weight="0.19288956" />
       <window_info id="Favorites" order="2" sideWeight="0.50498337" side_tool="true" weight="0.19288956" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31096563" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36824876" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.507365" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -510,23 +492,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/quickspy/net/netengine.py</url>
-          <line>12</line>
+          <line>14</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/quickspy/net/netengine.py</url>
-          <line>11</line>
+          <line>13</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/quickspy/net/netengine.py</url>
-          <line>10</line>
+          <line>12</line>
           <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/quickspy/net/netengine.py</url>
-          <line>9</line>
-          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -669,23 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qs-engine/gen_engine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/quickspy/msgengine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/quickspy/spider_agent.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -693,10 +653,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qs-engine/spiders.py">
+    <entry file="file://$PROJECT_DIR$/qss/quickspy_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="418">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -710,13 +670,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/quickspy/net/netengine.py">
+    <entry file="file://$PROJECT_DIR$/qss/dao_mongo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
+          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qs-engine/spiders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/quickspy/msgengine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
@@ -727,17 +698,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qss/quickspy_server.py">
+    <entry file="file://$PROJECT_DIR$/quickspy/net/netengine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+        <state relative-caret-position="190">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qss/dao_mongo.py">
+    <entry file="file://$PROJECT_DIR$/qs-engine/gen_engine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+        <state relative-caret-position="72">
+          <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
