@@ -15,7 +15,7 @@ async def main():
         spider_agent_group[0].run(),
         spider_agent_group[1].run()
     )
-    pass
+    await qs.netengine.close()
 
 
 #init

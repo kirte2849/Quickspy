@@ -12,3 +12,6 @@ class Spider:
 
     def get_url(self):
         return self.url_pool.get_text()
+
+    def push(self, urls):
+        self.url_pool.
