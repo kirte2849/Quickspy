@@ -1,4 +1,5 @@
 """   each parts conmunicate """
+"""   It is just a text of url poll"""
 
 import os
 
@@ -26,6 +27,9 @@ class Qssclient:
             return URL_POOL.pop()
         else:
             return None
+
+    def push(self, urls):
+        URL_POOL.append(urls)
 
     def get_url_pool(self):
         pass

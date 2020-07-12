@@ -1,0 +1,58 @@
+#数据库结构
+>>db_quickspy
+	
+	tb_genpool //默认池
+	tb_{name}_pool //爬虫的
+
+
+
+#表结构
+>>tb_gen_pool
+
+             域名
+     完整的url                                          
+                可随便传参                  下载记录    标识改URL的种类  入库时间
+                元数据    下载设置   parse函数返回资源         网页源代码存放路径
+id    url     domain    meta    settings    res    history    mark    src    time
+
+初始化：
+db.tb_genpoll.insert({
+	"url":"http://www.baidu.com",
+	"domain":"www.baidu.com",
+	"meta":"",
+	"settings":[],
+	"res":{},
+	"history":{},
+	"mark":"main_page",
+	"src":"c:\\www.baidu.com",
+	"time":2763478  //int(time.time())
+})
+
+
+
+
+
+分页查询:
+	db.tb_genpool.find(exp).skip(num1).linit(num2) //从num1查num2个数据
+
+
+关于exp：find(exp)
+	{"url":"baidu"}
+	{$or:{exp1,exp2,....}}
+	{"time":{%gte:200}} //大于200   gt大于   lt小于  lte小于等于
+	{"url":reexp}   //reexp 正则表达式
+	
+排序：
+	.sort({"price":1})
+	.sort({"price":-1})
+
+其他
+	.count()
+	.findOne()
+
+改数据
+	.update({exp},{data},{multi:true|false})  //multi改多条数据
+
+
+删除数据
+	.remove({exp})

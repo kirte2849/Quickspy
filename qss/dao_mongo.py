@@ -1,7 +1,7 @@
 import pymongo
 
 
-class Clent:
+class Client:
 
     def __init__(self, path):
         pass
@@ -9,3 +9,17 @@ class Clent:
     def rget(self, num = 1):
         """get items randomly"""
         pass
+
+    def re():
+        pass
+
+    def insert(self):
+        pass
+
+    def find(self):
+        pass
+
+    def remove(self):
+        pass
+
+    def 
