@@ -1,11 +1,13 @@
 import aiohttp
 
 
+from quickspy.net import Response
+
 class Netengine:
     def __init__(self):
         pass
 
     async def get(self, url):
-        async with aiohttp.ClientSession() as session:
+        session = async aiohttp.ClientSession()
             async with session.get(url) as response:
-                return await response.text()
+                return Response(response)

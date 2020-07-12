@@ -1,7 +1,7 @@
 from quickspy.color import *
 from quickspy.msgengine import Qssclient
-from quickspy.netengine import Netengine
-
+from quickspy.net.netengine import Netengine
+from quickspy.net import netengine
 
 from quickspy.spider_agent import SpiderAgent
 

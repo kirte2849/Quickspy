@@ -1,7 +1,8 @@
+'''Mananage spider'''
+
 class SpiderAgent:
     def __init__(self, spider):
         self.spider = spider
-        pass
 
     async def run(self):
         while True:
@@ -9,5 +10,5 @@ class SpiderAgent:
             if not url:
                 break
             response = await self.spider.netengine.get(url)
-            result = self.spider.parse(response)
+            result =await self.spider.parse(response)
             print(result)

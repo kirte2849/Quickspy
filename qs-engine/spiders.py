@@ -7,10 +7,8 @@ class Spider:
         self.url_pool = qs.url_pool
         pass
 
-    def parse(self, response):
-        return(etree.HTML(response).xpath('//title/text()')[0])
-        pass
+    async def parse(self, response):
+        return(await response.gettitle())
 
     def get_url(self):
         return self.url_pool.get_text()
-        pass

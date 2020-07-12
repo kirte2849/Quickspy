@@ -3,14 +3,15 @@ import pymongo
 
 class Client:
 
-    def __init__(self, path):
+    def __init__(self, host = '', port = ''):
         pass
 
     def rget(self, num = 1):
         """get items randomly"""
         pass
 
-    def re():
+    def re(self, exp):
+    '''返回符合的url'''
         pass
 
     def insert(self):
@@ -22,4 +23,5 @@ class Client:
     def remove(self):
         pass
 
-    def 
+    def mark(self,):
+    '''给一个id打标记'''

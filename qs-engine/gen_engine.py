@@ -1,13 +1,8 @@
-import aiohttp
 import asyncio
 
 import quickspy
 from spiders import Spider
 from quickspy import SpiderAgent
-from quickspy import Quickspy
-from quickspy.netengine import Netengine
-from quickspy.msgengine import Qssclient
-from quickspy.color import *
 
 import settings
 
