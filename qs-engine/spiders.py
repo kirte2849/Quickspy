@@ -3,6 +3,7 @@ from lxml import etree
 
 class Spider:
     def __init__(self, qs):
+        pass
 
     def parse(self, response):
         title = response.gettitle()

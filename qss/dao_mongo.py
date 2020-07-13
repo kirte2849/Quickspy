@@ -24,7 +24,7 @@ class Client:
             self.table.insert_one(data)
         elif isinstance(data,'list'):
             self.table.insert_many(data)
-        elif:
+        else:
             print('%s is illegal...')
         return
 
