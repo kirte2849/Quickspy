@@ -7,7 +7,7 @@ class EventManager:
     def __init__(self):
         pass
 
-
+ 
 class CoreManager:
     def __init__(self):
         self.cores = {id: Coro(id) for id in range(10)}
