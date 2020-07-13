@@ -11,5 +11,11 @@ class Netengine:
         await self.session.close()
 
     async def get(self, url):
-         response = await self.session.get(url)
-         return Response(response)
+         async with self.session.get(url) as response:
+             temp = await response.read()
+
+             _response = Response(temp)
+             _response.url = response.url
+             _response.status = response.status
+
+             return _response

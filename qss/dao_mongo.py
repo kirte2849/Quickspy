@@ -13,7 +13,6 @@ class Client:
         x = self.table.find()
         return next(x)
 
-=======
 
     def re(self,field,exp):#待修改
         x = self.table.find({field:{"$regex":exp}})

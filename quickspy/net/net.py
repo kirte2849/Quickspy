@@ -2,40 +2,39 @@ from lxml import etree
 import re
 
 class Response:
-    def __init__(self, response, encoding = 'utf-8'):
+    def __init__(self, byte, encoding = 'utf-8'):
         global ENCODING
         ENCODING = encoding
 
-        self.response = response
-        self.url = response.url
+        self.url = None
         self.html = None
-        self.byte = None
+        self.byte = byte
         self.HTML = None
+        self.status = None
 
-    async def get_html(self):
-        self.html = await self.get_byte()
-        return self.html.encode(ENCODING)
+    def get_html(self):
+        if self.html is None:
+            self.html = self.get_byte().decode(ENCODING)
+        return self.html
 
-    async def get_byte(self):
-        if not self.byte:
-          self.byte = await self.response.text()
+    def get_byte(self):
         return self.byte
 
-    async def xpath(selfj, exp):
-        temp = await self.get_HTML()
+    def xpath(self, exp):
+        temp = self.get_HTML()
         return temp.xpath(exp)
 
-    async def findall(self, exp):
-        return re.findall(await self.get_html(), exp)
+    def findall(self, exp):
+        return re.findall(self.get_html(), exp)
 
-    async def get_HTML(self):
-        if not self.HTML:
-            self.HTML = etree.HTML(await self.get_html())
+    def get_HTML(self):
+        if self.HTML is None:
+            self.HTML = etree.HTML(self.get_html())
         return self.HTML
 
-    async def get_url(self):
+    def get_url(self):
         return self.url
 
-    async def gettitle(self):
-        temp = await self.get_HTML()
+    def gettitle(self):
+        temp = self.get_HTML()
         return temp.xpath('//title/text()')[0]

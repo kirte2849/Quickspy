@@ -5,12 +5,10 @@ from quickspy.net import netengine
 
 from quickspy.spider_agent import SpiderAgent
 
-
 class Quickspy:
     def __init__(self, netengine, url_pool):
-        self.netengine = netengine
-        self.url_pool = url_pool
-        pass
+        self.spider_pool = {}
+
 
 
 #need add some exception to solve **kwargs

@@ -6,16 +6,16 @@ from quickspy import SpiderAgent
 
 import settings
 
-qs = quickspy.start_qsp(settings)
+qs = quickspy.start_qsp(settings) #开启流
 spider_agent_group= [SpiderAgent(Spider(qs)), SpiderAgent(Spider(qs)), SpiderAgent(Spider(qs))]
 
 
 async def main():
     await asyncio.gather(
-        spider_agent_group[0].run(),
-        spider_agent_group[1].run()
+        coro[0].run(),
+        coro[1].run()
     )
-    await qs.netengine.close()
+    await qs.netengine.close() #close streem
 
 
 #init
