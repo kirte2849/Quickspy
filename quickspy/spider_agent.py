@@ -1,18 +1,28 @@
 '''Mananage spider'''
+from asyncio import TimeoutError
+
+from quickspy.exceptions import FinishedError
+
 
 class SpiderAgent:
     def __init__(self, spider):
         self.spider = spider
 
     async def run(self):
-        self.netengine = qs.netengine
-        self.url_pool = qs.url_pool
-
+        self.qsparts = self.spider.qsparts
+        self.qsparts.UrlPool.UP.add_new_url('http://www.bilibilli.com')
         while True:
-            url = self.spider.url_pool.get_text()
+            url = self.qsparts.UrlPool.UP.get_url()
             if not url:
                 break
-            byte = await self.spider.netengine.get(url)
+            try:
+                byte = await self.spider.qsparts.NetEngine.NE.get(url)
+            except TimeoutError:
+                byte = b''
+                print(f'time out at spider {self.spider.spiderinfo.name}')
             result, backurl =self.spider.parse(byte)
-            self.spider.push(backurl)
+            if backurl:
+                self.qsparts.UrlPool.UP.add_new_url(backurl)
             print(result)
+        raise FinishedError
+

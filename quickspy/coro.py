@@ -1,41 +1,65 @@
-STOPING = 0
-WAITING = 1
 import asyncio
 
+from quickspy.exceptions import FinishedError
+
+
+SLEEPING = 0
+WAITING = 1
+WORKING = 2
+DISTRIBUTED = 3
 
 class EventManager:
     def __init__(self):
         pass
 
- 
-class CoreManager:
+
+class CoroManager:
     def __init__(self):
-        self.cores = {id: Coro(id) for id in range(10)}
-        self.coros_status = {id: STOPING for id in range(len(self.cores))}
+        self.coros = [Coro(id) for id in range(10)]
         self.running_events = []
         self.waiting_events = []
         self.finished_events = []
 
     def add_event(self, event):
-        for id, status in self.coros_status.items():
-            if status is WAITING:
-                self.cores[id].event = event
+        '''event is a coroutine'''
+        for coro in self.coros:
+            if coro.status is WAITING:
+                coro.event = event
+                coro.status = DISTRIBUTED
+                break
 
-    def exam(self):
-        self.coros_status = {id: status for id, status in self.cores.items()}
+    def wake(self):
+        '''wake coro'''
+        for coro in self.coros:
+            if coro.status is SLEEPING:
+                coro.status = WAITING
+                break
 
 
 class Coro:
-    def __init__(self, id = None):
-        self.id = None
-        self.sign = None
-        self.status = STOPING
+    def __init__(self, id):
+        self.id = id
+        self.sign = True
+        self.status = SLEEPING
         self.event = None
-        pass
+
+    def kill(self):
+        '''don't call this function'''
+        self.sign = False
 
     async def run(self):
-        if self.status is WAITING:
+        while self.sign:
             if self.event is not None:
-                await self.event()
-        await asyncio.sleep(5)
+                try:
+                    await self.event
+                except FinishedError:
+                    print('finished!')
+                    self.event = None
+                except Exception as e:
+                    self.event = None
+                    print(repr(e))
+                self.status = WAITING
+            await asyncio.sleep(1)
+
+
 

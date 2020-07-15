@@ -5,14 +5,14 @@ import os
 import requests
 
 from quickspy.color import *
-from quickspy.net import Urlmanager
+from quickspy.net import UrlManager
 
 class Man:
     def __init__(self, ip, port):
         pass
 
 
-class Qssclient:
+class QssClient:
     def __init__(self, host='localhost', port=123):
         pass
 

@@ -1,0 +1,3 @@
+
+class FinishedError(Exception):
+    pass
