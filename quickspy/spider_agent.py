@@ -15,12 +15,20 @@ class SpiderAgent:
             url = self.qsparts.UrlPool.UP.get_url()
             if not url:
                 break
+
+            backurl = None
+            result = None
+
             try:
-                byte = await self.spider.qsparts.NetEngine.NE.get(url)
+                response = await self.spider.qsparts.NetEngine.NE.get(url)
+                result, backurl = self.spider.parse(response)
             except TimeoutError:
-                byte = b''
-                print(f'time out at spider {self.spider.spiderinfo.name}')
-            result, backurl =self.spider.parse(byte)
+                print(f'time out at spider {self.spider.spiderinfo.name : On download url {url}}')
+                self.qsparts.UrlPool.UP.add_new_url(url)
+            except Exception as e:
+                print(repr(e))
+
+            #回调url
             if backurl:
                 self.qsparts.UrlPool.UP.add_new_url(backurl)
             print(result)

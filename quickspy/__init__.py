@@ -24,6 +24,8 @@ class Quickspy:
         self.mmannager = MMannager()
         self.lmanager = LMannager()
 
+        ##self.coros = None
+
     def get_url_pool(self, spiderinfo):
         return self.upmanager.reg(spiderinfo)
 

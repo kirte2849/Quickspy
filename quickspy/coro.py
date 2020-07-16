@@ -54,12 +54,13 @@ class Coro:
                     await self.event
                 except FinishedError:
                     print('finished!')
-                    self.event = None
                 except Exception as e:
                     self.event = None
                     print(repr(e))
+                finally:
+                    self.event = None
                 self.status = WAITING
-            await asyncio.sleep(1)
+            await asyncio.sleep(10)
 
 
 

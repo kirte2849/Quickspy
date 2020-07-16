@@ -88,7 +88,7 @@ if __name__ == '__main__':
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
          佛祖保佑       永无BUG
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'''
-    #print(doc)
+    print(doc)
     init()
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main())
