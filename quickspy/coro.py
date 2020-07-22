@@ -13,7 +13,7 @@ class EventManager:
         pass
 
  
-class CoreManager:
+class CoroManager:
     def __init__(self):
         self.coros = [Coro(id) for id in range(10)]
         self.running_events = []

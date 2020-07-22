@@ -1,11 +1,13 @@
 from collections import namedtuple
 
 
+from quickspy.engine_agent import EAgent
 from quickspy.color import *
 from quickspy.msgengine import QssClient
 from quickspy.net.netengine import NetEngine
 from quickspy.spider_agent import SpiderAgent
 from quickspy.qsparts import *
+from quickspy.jsonmsg import JsonMsgManager,jsmsg
 
 Qsparts = namedtuple('Qsparts', ['UrlPool', 'NetEngine', 'Messager', 'Logger'])
 

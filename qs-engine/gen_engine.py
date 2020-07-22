@@ -8,6 +8,7 @@ from quickspy.coro import CoroManager,EventManager
 
 from spiders.spiders import Spider
 import settings as root_settings
+from quickspy import EAgent
 
 #检查文件???????????
 #读取根设置
@@ -38,6 +39,9 @@ agt2 = SpiderAgent(spider3)
 #初始化循环
 em = EventManager()
 cm = CoroManager()
+
+qsa = EAgent(qs, cm)
+
 cm.wake()
 cm.wake()
 cm.wake()
@@ -48,6 +52,7 @@ cm.add_event(agt3.run())
 async def main():
     #进入消息循环
     await asyncio.gather(
+        qsa.run(),
         cm.coros[0].run(),
         cm.coros[1].run(),
         cm.coros[2].run(),
