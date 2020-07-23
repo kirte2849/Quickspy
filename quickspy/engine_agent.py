@@ -49,11 +49,37 @@ class EAgent:
                 if command == 'hello':
                     await msg.sendback('Hello, I am the agent of this quickspy engine : gen_engine')
 
-                #show command
+                #show coros|urlpool
                 elif command == 'show':
+
+                    #coros
                     if args[0] == 'coros':
+                        _msg = ''
                         for coro in self.cm.coros:
-                            await msg.sendback(f'Coro({coro.id}): Status: {coro.status}')
+                            _msg += f'Coro({coro.id}): Status: {coro.status}\n'
+                        await msg.sendback(_msg.strip())
+
+                    #show urlpool [spideruuid|name]
+                    elif args[0] == 'urlpool':
+                        for spider, qsparts in self.qs.spider_pool:
+                            if spider.spiderinfo.uuid == args[1] or spider.spiderinfo.name == args[1]:
+                                _spider, _qsparts = spider, qsparts
+                                url_pool = qsparts.UrlPool.UP
+                                _msg = f'new_url: {url_pool.new_urls}\nold_url: {url_pool.old_urls}'
+                                break
+                        await msg.sendback(_msg)
+
+                    #show spiders info
+                    elif args[0] == 'spiders' and args[1] == 'info':
+                        _msg = ''
+                        for spider, qsparts in self.qs.spider_pool:
+                            _msg += f'({spider.spiderinfo.name}, {spider.spiderinfo.uuid})\n'
+                        await msg.sendback(_msg.strip())
+
+
+                elif command == 'wake':
+                    self.cm.wake()
+
                 else:
                     await msg.sendback('QuickSpy: No command find!')
 

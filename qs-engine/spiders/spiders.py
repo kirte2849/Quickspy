@@ -1,25 +1,23 @@
+from quickspy.util import get_uuid
+
 class Spider:
     def __init__(self):
-        self.name = None
-        self.uuid = None
+        self.name = 'main'
+        self.uuid = '11111'
         self.spiderinfo = None
         self.spider_settings = None
         self.qsparts = None
 
 
     def get_spiderinfo(self):
-        if self.spiderinfo is None:
-            spiderinfo = SpiderInfo()
-            spiderinfo.name = self.name
-            spiderinfo.uuid = self.uuid
-            self.spiderinfo = spiderinfo
+        self.spiderinfo = SpiderInfo(self.uuid, self.name)
         return self.spiderinfo
 
     def parse(self, response):
         title = response.gettitle()
-        next_page = response.xpath('//body//a[7]/@href')
+        next_page = 'https://www.tujigu.com' + response.xpath("//a[@class='next']//@href")[-1]
         if next_page:
-            next_page = next_page[0]
+            next_page = next_page
         else:
             next_page = None
         return (title,next_page)
@@ -29,9 +27,9 @@ class Spider:
 
 
 class SpiderInfo:
-    def __init__(self):
-        self.name = None
-        self.uuid = None
+    def __init__(self, uuid, name='DefaultSpiderName'):
+        self.name = name
+        self.uuid = uuid
 
 
 class Example(Spider):

@@ -115,12 +115,18 @@ class QSS:
                     user = None
                 if not user:
                     user = get_uuid()
-                if not user in self.clients:
-                    this_client = Client(user, this_addr)
-                    self.clients[user] = this_client
-                    writer.write('Register successifully!'.encode())
-                else:
-                    writer.write(f'Name \'{user}\' has already been registered!'.encode())
+
+                #test
+                this_client = Client(user, this_addr)
+                self.clients[user] = this_client
+                writer.write('Register successifully!'.encode())
+
+                # if not user in self.clients:
+                #     this_client = Client(user, this_addr)
+                #     self.clients[user] = this_client
+                #     writer.write('Register successifully!'.encode())
+                # else:
+                #     writer.write(f'Name \'{user}\' has already been registered!'.encode())
 
             # 转发send name msg
             elif command == 'send' and this_client:
@@ -179,8 +185,10 @@ class QSS:
 
             #展示clients
             elif command == 'status' and this_client:
+                _msg = ''
                 for name, client in self.clients.items():
-                    writer.write(f'Client({name}) >> Addr: {client.addr} , Temp:{client.temp}'.encode())
+                    _msg += f'Client({name}) >> Addr: {client.addr} , Temp:{client.temp}\n'
+                writer.write(_msg.strip().encode())
 
             # 保险
             else:
