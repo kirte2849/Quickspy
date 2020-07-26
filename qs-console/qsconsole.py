@@ -1,12 +1,59 @@
 import socket
 import sys
 import json
+from threading import Thread
+import time
 
 from quickspy.color import *
+import quickspy.cmd as cmd
+import console_ui as ui
+from quickspy.util import better_print
+
+bprint = better_print('line')
+
+# class QSChat:
+#     def init(self, key, value):
+#         key = str(key)
+#         value = str(value)
+#         line13 = '+------------------+'
+#         text = key + ': ' + value
+#         if len(text) > 18:
+#             text = text[:15] + '...'
+#         else:
+#             text = text.ljust(18, '')
+#         line2 = '|' + text + '|'
+#         return line13 + '\n' + line2 + '\n' + line13
+
+class Sign:
+    def __init__(self):
+        self.sign = 1
+
+    def stop(self):
+        self.sign = 0
+        cmd.clear()
 
 
+def run_md(f, main):
+    sign = Sign()
+    t = Thread(target=f, args=(sign, main))
+    t.start()
+    if input() == 'q':
+        sign.stop()
 
-class Main():
+
+def myhelp():
+    return ui.HELP
+
+
+def show_md_all(sign, main):
+    while sign.sign:
+        cmd.clear()
+        print(main.heartbeart())
+        time.sleep(1)
+        cmd.clear()
+
+
+class Main:
     def __init__(self):
         self.s = None
 
@@ -14,30 +61,30 @@ class Main():
         self.login()
         self.loop()
 
-    def connect(self, host = 'localhost', port = 2546):
+    def connect(self, host='localhost', port=2546):
         try:
             self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.s.connect((host, port))
-            print('Welcome to Quickspy console!')
         except socket.error as msg:
             print(RED(f'at Main.connect :{msg}'))
 
-    def getmsg(self, jsmsg): #retrun [something]
-        jstext = json.loads(jsmsg, strict=False)
-        return jstext['body']['msg']
+    def recvjslist(self):#retrun [{jamsg},{jsmsg}]
+        return json.loads(self.recvtext(), strict=False)
 
-    def heartbeart(self):
+    def recvtext(self):
+        return self.s.recv(1024).decode()
+
+    def getmsg(self, jsmsg): #retrun [[],[],[]]
+        return jsmsg['body']['msg']
+
+    def heartbeart(self):#retrun list
         # heartbeat
-        s.send('heartbeat'.encode())
-        recved = self.s.recv(1024)
-        jsrecved = json.loads(recved, strict=False)
-        for each in jsrecved:
-            msg = each['body']['msg']
-            print(msg)
-
-    def send(self, toname, msg):
-        self.s.send(f'send {toname} "{msg}"'.encode())
-        recved = s.recv(1024).decode()
+        self.s.send('heartbeat'.encode())
+        jsmsglist = self.recvjslist()
+        _msg = []
+        for each in jsmsglist:
+            _msg.append(self.getmsg(json.loads(each, strict=False)))
+        return _msg
 
     def login(self):
         # login
@@ -47,20 +94,57 @@ class Main():
     def loop(self):
         while True:
             #main
-            ipt = input(GREEN('>')) #test
+            print(GREEN('>'), end='')
+            ipt = input() #test
+            
+            #参数分离
+            if ipt.find(' '):
+                command = ipt.split(' ')[0]
+                if (ipt.find('\"') == -1):
+                    args = ipt.split(' ')[1:]
+                else:
+                    first = ipt.find('\"')
+                    last = ipt.rfind('\"')
+                    lstring = ipt[ipt.find(' ') + 1: first - 1]
+                    rstring = ipt[first + 1: last]
+                    if lstring.find(' ') != -1:
+                        args = lstring.split(' ')
+                        args.append(rstring)
+                    else:
+                        args = [lstring, rstring]
+            else:
+                command, args = ipt, []
 
-            if ipt == '':
+            if command == '':
                 continue
 
-            if ipt == 'exit' or ipt == 'close' or ipt == 'quit':
+            if command == 'exit' or ipt == 'close' or ipt == 'quit':
                 self.s.send('close'.encode())
                 recved = self.s.recv(1024).decode()
                 break
 
-            elif 'send' in ipt:
-                self.s.send(ipt.encode())
-                self.s.recv(1024)
+            elif command == 'go':
+                pass
 
+            elif command == 'help':
+                print(myhelp())
+
+            elif command == 'cls':
+                cmd.clear()
+
+            elif command == 'bannel':
+                cmd.clear()
+                bprint(ui.colorful_bannel())
+                #print(ui.random_color_bannel())
+                bprint(ui.FIRST_HELP)
+
+            elif command == 'monitor':
+                if (args[0] == '' or args[0] == 'all') if len(args) >= 1 else True:
+                    run_md(show_md_all, self)
+
+            elif command == 'debug':
+                if args[0] == 'recv':
+                    self.s.recv(1024)
 
             else:
                 self.s.send(ipt.encode())
@@ -71,4 +155,7 @@ class Main():
 
 
 if __name__ == '__main__':
+    bprint(ui.colorful_bannel())
+    #bprint(ui.random_color_bannel())
+    bprint(ui.FIRST_HELP)
     m = Main()

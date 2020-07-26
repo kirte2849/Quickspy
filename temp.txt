@@ -1,0 +1,51 @@
+#Main panel
+             _      _                    
+  __ _ _   _(_) ___| | _____ _ __  _   _ 
+ / _` | | | | |/ __| |/ / __| '_ \| | | |
+| (_| | |_| | | (__|   <\__ \ |_) | |_| |
+ \__, |\__,_|_|\___|_|\_\___/ .__/ \__, |
+    |_|                     |_|    |___/ 
+-----------------------------------------
+Welcome to quickspy console (0.1v)
+Type "help", "copyright", "credits" or "license" for more information.
+
+
+
+#monitor
+
+all coros 15/55/70
+all spiderd 40
+speed 49/s
+internetspeed 2MB/s
+cpu 40%
+storage 4000MB|30%
+engine count 4
+runing spiders 43 
+
+
+#engine monitor
+
+coros : 10/20/30 working/sleeping/all
+spider counts: 2/6/8
+
+
+
+
+#spider monitor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
