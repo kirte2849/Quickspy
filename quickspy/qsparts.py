@@ -19,9 +19,9 @@ class NEMannager:
         if info.uuid not in self.pool:
             temp = RegedNE(info.uuid, NetEngine())
             self.pool[info.uuid] = temp
-            return temp
+            return temp.NE
         else:
-            return self.pool[info.uuid]
+            return self.pool[info.uuid].NE
 
     def status(self):
         return self.pool
@@ -35,9 +35,9 @@ class UPMannager:
         if info.uuid not in self.pool:
             temp = RegedUP(info.uuid, UrlManager())
             self.pool[info.uuid] = temp
-            return temp
+            return temp.UP
         else:
-            return self.pool[info.uuid]
+            return self.pool[info.uuid].UP
 
     def status(self):
         return self.pool
@@ -49,11 +49,11 @@ class MMannager:
 
     def reg(self, info):
         if info.uuid not in self.pool:
-            temp = RegedM(info.uuid, MMannager())
+            temp = RegedM(info.uuid, Messenger())
             self.pool[info.uuid] = temp
-            return temp
+            return temp.M
         else:
-            return self.pool[info.uuid]
+            return self.pool[info.uuid].M
 
     def status(self):
         return self.pool
@@ -65,11 +65,12 @@ class LMannager:
 
     def reg(self, info):
         if info.uuid not in self.pool:
-            temp = RegedL(info.uuid, LMannager())
+            temp = RegedL(info.uuid, Logger())
             self.pool[info.uuid] = temp
-            return temp
+            return temp.L
         else:
-            return self.pool[info.uuid]
+            return self.pool[info.uuid].L
 
     def status(self):
         return self.pool
+

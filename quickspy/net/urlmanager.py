@@ -1,35 +1,22 @@
+import socket
+
+from quickspy.color import *
+
 class UrlManager:
-
     def __init__(self):
-        self.new_urls = set()
-        self.old_urls = set()
+        try:
+            self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.s.connect(('localhost', 2546))
+        except socket.error as msg:
+            print(RED(f'at Main.connect :{msg}'))
 
-    def has_new_url(self):
-        return self.new_urls_size() != 0
+    async def get_url(self):
+        self.s.send('urlpool get_url'.encode())
+        url = self.s.recv(1024).decode()
+        print(RED('at get_url: ' + url))
+        return url
 
-    def new_urls_size(self):
-        return len(self.new_urls)
+    async def add_new_url(self, url):
+        self.s.send(f'urlpool add_new_url {url}'.encode())
+        self.s.recv(1024)
 
-    def old_urls_size(self):
-        return len(self.old_urls)
-
-    def add_new_url(self,url):
-        if url is None:
-            return
-        if url not in self.old_urls and url not in self.new_urls:
-            self.new_urls.add(url)
-
-    def push(self,urls):
-        if urls is None or len(urls)==0:
-            return
-        for url in ulrs:
-            self.add_new_url(url)
-
-    def get_url(self):
-        if self.new_urls:
-            new_url = self.new_urls.pop()
-            self.old_urls.add(new_url)
-            return new_url
-        else:
-            return None
-    

@@ -7,6 +7,9 @@ from quickspy.color import *
 from quickspy.util import get_uuid
 from quickspy import jsmsg
 
+from qss.urlmanager import UrlManager
+urlpool = UrlManager()
+
 CONN_TIMEOUT = 60000
 
 
@@ -127,6 +130,13 @@ class QSS:
                 #     writer.write('Register successifully!'.encode())
                 # else:
                 #     writer.write(f'Name \'{user}\' has already been registered!'.encode())
+
+            elif command == 'urlpool':
+                try:
+                    temp = getattr(urlpool, args[0])
+                    writer.write(str(temp(*args[1:])).encode())
+                except AttributeError as e:
+                    writer.write(str(e).encode())
 
             # 转发send name msg
             elif command == 'send' and this_client:

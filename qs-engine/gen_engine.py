@@ -25,8 +25,8 @@ spider3 = Spider()
 #注册spider
 
 _, spider1.qsparts = qs.reg_spider(spider1)
-_,spider2.qsparts = qs.reg_spider(spider2)
-_,spider3.qsparts = qs.reg_spider(spider3)
+_, spider2.qsparts = qs.reg_spider(spider2)
+_, spider3.qsparts = qs.reg_spider(spider3)
 
 #用spideragent包装spider
 agt1 = SpiderAgent(spider1)
