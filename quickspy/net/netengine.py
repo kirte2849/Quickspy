@@ -47,11 +47,15 @@ class Response:
 
 
 class NetEngine:
-    def __init__(self, s):
+    def __init__(self):
         #打开aiohttp 的http接口
         self.session = aiohttp.ClientSession()
 
-        self.s = s
+        try:
+            self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.s.connect(('localhost', 2546))
+        except socket.error as msg:
+            print(RED(f'at Quickspy.init :{msg}'))
 
     async def close(self):
         await self.session.close()

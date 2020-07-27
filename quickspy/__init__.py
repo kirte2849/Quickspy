@@ -21,17 +21,12 @@ class Quickspy:
         self.spider_pool = [] #[(spider,qsparts)]
         # self.logger_pool = []
         ##self.coros = None
-        try:
-            self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self.s.connect(('localhost', 2546))
-        except socket.error as msg:
-            print(RED(f'at Quickspy.init :{msg}'))
 
     def reg_spider(self, spider):
         spiderinfo = spider.get_spiderinfo()
         qsparts = Qsparts(
-            UrlManager(self.s),
-            NetEngine(self.s),
+            UrlManager(),
+            NetEngine(),
             Messenger(spiderinfo.uuid),
             Logger()
 
