@@ -15,7 +15,7 @@ class EventManager:
  
 class CoroManager:
     def __init__(self):
-        self.coros = [Coro(id) for id in range(10)]
+        self.coros = [Coro(id) for id in range(50)]
         self.running_events = []
         self.waiting_events = []
         self.finished_events = []
@@ -60,7 +60,7 @@ class Coro:
                 finally:
                     self.event = None
                 self.status = WAITING
-            await asyncio.sleep(10)
+            await asyncio.sleep(1)
 
 
 

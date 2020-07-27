@@ -1,4 +1,5 @@
 from quickspy.util import get_uuid
+from quickspy.item import Url, Res, Item
 
 class Spider:
     def __init__(self):
@@ -20,7 +21,14 @@ class Spider:
             next_page = next_page
         else:
             next_page = None
-        return (title,next_page)
+
+        res = Res()
+        res.text_res = title
+
+        backurls = []
+        backurls.append(Url(next_page, response.url, 'main_page'))
+
+        return (res, backurls) #return (res,[url,url])
 
     def get_url(self):
         return self.url_pool.get_text()
@@ -33,7 +41,7 @@ class SpiderInfo:
 
 
 class Example(Spider):
-    def parse(self):
+    def parse(self, response):
         pass
 
     def get_url(self):

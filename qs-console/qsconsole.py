@@ -48,7 +48,8 @@ def myhelp():
 def show_md_all(sign, main):
     while sign.sign:
         cmd.clear()
-        print(main.heartbeart())
+        speed = main.s.send("self.nemanager.reg('default').speed()".encode())
+        print(speed)
         time.sleep(1)
         cmd.clear()
 

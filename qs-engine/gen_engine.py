@@ -18,20 +18,15 @@ qs = quickspy.Quickspy(root_settings)
 
 #实例spider
 
-spider1 = Spider()
-spider2 = Spider()
-spider3 = Spider()
+spiders = [Spider() for _ in range(50)]
 
 #注册spider
-
-_, spider1.qsparts = qs.reg_spider(spider1)
-_, spider2.qsparts = qs.reg_spider(spider2)
-_, spider3.qsparts = qs.reg_spider(spider3)
+agts = []
+for spider in spiders:
+    _, spider.qsparts = qs.reg_spider(spider)
+    agts.append(SpiderAgent(spider))
 
 #用spideragent包装spider
-agt1 = SpiderAgent(spider1)
-agt3 = SpiderAgent(spider2)
-agt2 = SpiderAgent(spider3)
 
 #spider_agent_group= [SpiderAgent(Spider(qs)), SpiderAgent(Spider(qs))]
 
@@ -42,12 +37,60 @@ cm = CoroManager()
 
 qsa = EAgent(qs, cm)
 
-cm.wake()
-cm.wake()
-cm.wake()
-cm.add_event(agt1.run())
-cm.add_event(agt2.run())
-cm.add_event(agt3.run())
+for each in range(1):
+    cm.wake()
+
+cm.add_event(agts[0 ].run())
+cm.add_event(agts[1 ].run())
+cm.add_event(agts[2 ].run())
+cm.add_event(agts[3 ].run())
+cm.add_event(agts[4 ].run())
+cm.add_event(agts[5 ].run())
+cm.add_event(agts[6 ].run())
+cm.add_event(agts[7 ].run())
+cm.add_event(agts[8 ].run())
+cm.add_event(agts[9 ].run())
+cm.add_event(agts[10].run())
+cm.add_event(agts[11].run())
+cm.add_event(agts[12].run())
+cm.add_event(agts[13].run())
+cm.add_event(agts[14].run())
+cm.add_event(agts[15].run())
+cm.add_event(agts[16].run())
+cm.add_event(agts[17].run())
+cm.add_event(agts[18].run())
+cm.add_event(agts[19].run())
+cm.add_event(agts[20].run())
+cm.add_event(agts[21].run())
+cm.add_event(agts[22].run())
+cm.add_event(agts[23].run())
+cm.add_event(agts[24].run())
+cm.add_event(agts[25].run())
+cm.add_event(agts[26].run())
+cm.add_event(agts[27].run())
+cm.add_event(agts[28].run())
+cm.add_event(agts[29].run())
+cm.add_event(agts[30].run())
+cm.add_event(agts[31].run())
+cm.add_event(agts[32].run())
+cm.add_event(agts[33].run())
+cm.add_event(agts[34].run())
+cm.add_event(agts[35].run())
+cm.add_event(agts[36].run())
+cm.add_event(agts[37].run())
+cm.add_event(agts[38].run())
+cm.add_event(agts[39].run())
+cm.add_event(agts[40].run())
+cm.add_event(agts[41].run())
+cm.add_event(agts[42].run())
+cm.add_event(agts[43].run())
+cm.add_event(agts[44].run())
+cm.add_event(agts[45].run())
+cm.add_event(agts[46].run())
+cm.add_event(agts[47].run())
+cm.add_event(agts[48].run())
+cm.add_event(agts[49].run())
+
 
 async def main():
     #进入消息循环
@@ -56,11 +99,54 @@ async def main():
         cm.coros[0].run(),
         cm.coros[1].run(),
         cm.coros[2].run(),
+        cm.coros[3].run(),
         cm.coros[4].run(),
         cm.coros[5].run(),
         cm.coros[6].run(),
         cm.coros[7].run(),
         cm.coros[8].run(),
+        cm.coros[9].run(),
+        cm.coros[10].run(),
+        cm.coros[11].run(),
+        cm.coros[12].run(),
+        cm.coros[13].run(),
+        cm.coros[14].run(),
+        cm.coros[15].run(),
+        cm.coros[16].run(),
+        cm.coros[17].run(),
+        cm.coros[18].run(),
+        cm.coros[19].run(),
+        cm.coros[20].run(),
+        cm.coros[21].run(),
+        cm.coros[22].run(),
+        cm.coros[23].run(),
+        cm.coros[24].run(),
+        cm.coros[25].run(),
+        cm.coros[26].run(),
+        cm.coros[27].run(),
+        cm.coros[28].run(),
+        cm.coros[29].run(),
+        cm.coros[30].run(),
+        cm.coros[31].run(),
+        cm.coros[32].run(),
+        cm.coros[33].run(),
+        cm.coros[34].run(),
+        cm.coros[35].run(),
+        cm.coros[36].run(),
+        cm.coros[37].run(),
+        cm.coros[38].run(),
+        cm.coros[39].run(),
+        cm.coros[40].run(),
+        cm.coros[41].run(),
+        cm.coros[42].run(),
+        cm.coros[43].run(),
+        cm.coros[44].run(),
+        cm.coros[45].run(),
+        cm.coros[46].run(),
+        cm.coros[47].run(),
+        cm.coros[48].run(),
+        cm.coros[49].run()
+
     )
     #关闭消息循环
     await qs.netengine.close() #close streem

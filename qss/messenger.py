@@ -57,7 +57,7 @@ class Avarage:
 
 class NetEngine:
     def __init__(self):
-        self.ava = Avarage(1)
+        self.ava = Avarage(5)
 
     def add(self):
         self.ava.add()
