@@ -76,6 +76,9 @@ class EAgent:
                             _msg += f'({spider.spiderinfo.name}, {spider.spiderinfo.uuid})\n'
                         await msg.sendback(_msg.strip())
 
+                elif command == 'exec':
+                    result = exec(args[0])
+                    return result
 
                 elif command == 'wake':
                     self.cm.wake()

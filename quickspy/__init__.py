@@ -1,4 +1,5 @@
 from collections import namedtuple
+import socket
 
 
 from quickspy.engine_agent import EAgent
@@ -19,37 +20,24 @@ class Quickspy:
         # self.netengine_pool = []
         self.spider_pool = [] #[(spider,qsparts)]
         # self.logger_pool = []
-
-        #parse root settings
-        self.nemanager = NEMannager()
-        self.upmanager = UPMannager()
-        self.mmannager = MMannager()
-        self.lmanager = LMannager()
-
         ##self.coros = None
-
-    def get_url_pool(self, spiderinfo):
-        return self.upmanager.reg(spiderinfo)
-
-    def get_netengine(self, spiderinfo):
-        return self.nemanager.reg(spiderinfo)
+        try:
+            self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.s.connect(('localhost', 2546))
+        except socket.error as msg:
+            print(RED(f'at Quickspy.init :{msg}'))
 
     def reg_spider(self, spider):
         spiderinfo = spider.get_spiderinfo()
         qsparts = Qsparts(
-            self.get_url_pool(spiderinfo),
-            self.get_netengine(spiderinfo),
-            self.get_messenger(spiderinfo),
-            self.get_logger(spiderinfo)
+            UrlManager(self.s),
+            NetEngine(self.s),
+            Messenger(spiderinfo.uuid),
+            Logger()
+
         )
         self.spider_pool.append((spider, qsparts))
         return (spider, qsparts)
-
-    def get_messenger(self, spiderinfo):
-        return self.mmannager.reg(spiderinfo)
-
-    def get_logger(self, spiderinfo):
-        return self.lmanager.reg(spiderinfo)
 
 
 #need add some exception to solve **kwargs

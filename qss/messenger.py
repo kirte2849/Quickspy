@@ -8,10 +8,8 @@ from quickspy.util import get_uuid
 from quickspy import jsmsg
 
 from qss.urlmanager import UrlManager
-urlpool = UrlManager()
 
 CONN_TIMEOUT = 60000
-
 
 Temp = namedtuple('Temp', ['comefrom', 'msg'])
 
@@ -33,8 +31,77 @@ class Client:
         self.temp = []
 
 
+class Avarage:
+    def __init__(self, _range=5):
+        self._range = _range
+        self.histoty = []
+
+    def add(self):
+        self.histoty.append(time.time())
+
+    def refresh(self):
+        self.histoty = [each for each in self.histoty if each >= time.time() - self._range]
+
+    def speed(self):
+        now = time.time()
+        useful_time = 0
+        #print(f'history: {self.histoty}')
+        for each in self.histoty:
+            if each >= now - self._range:
+                useful_time += 1
+            else:
+                continue
+        #print(f'useful_time: {useful_time}')
+        self.refresh()
+        return useful_time/self._range
+
+class NetEngine:
+    def __init__(self):
+        self.ava = Avarage(1)
+
+    def add(self):
+        self.ava.add()
+
+    def speed(self):
+        return self.ava.speed()
+
+RegedNE = namedtuple('RegedNE', ['uuid', 'NE'])
+RegedUP = namedtuple('RegedUP', ['uuid', 'UP'])
+RegedM = namedtuple('RegedM', ['uuid', 'M'])
+RegedL = namedtuple('RegedL', ['uuid', 'L'])
+
+class NEMannager:
+    def __init__(self):
+        self.pool = {}
+
+    def reg(self, uuid):
+        if uuid not in self.pool:
+            temp = RegedNE(uuid, NetEngine())
+            self.pool[uuid] = temp
+            return temp.NE
+        else:
+            return self.pool[uuid].NE
+
+class UPMannager:
+    def __init__(self):
+        self.pool = {}
+
+    def reg(self, uuid):
+        if uuid not in self.pool:
+            temp = RegedUP(uuid, UrlManager())
+            self.pool[uuid] = temp
+            return temp.UP
+        else:
+            return self.pool[uuid].UP
+
 class QSS:
     def __init__(self):
+
+        self.nemanager = NEMannager()
+        self.upmanager = UPMannager()
+        #self.mmannager = MMannager()
+        #self.lmanager = LMannager()
+
         self.conns = {}   #{addr:time,addr:time, ....}
         self.clients = {}  #{name: <class Client>}
 
@@ -77,7 +144,7 @@ class QSS:
                 break
 
             #接收命令
-            recived = await reader.read(1024)
+            recived = await reader.read(2048)
             print(RED(f'Reciving data: {recived}'))
 
             #解析命令
@@ -131,11 +198,22 @@ class QSS:
                 # else:
                 #     writer.write(f'Name \'{user}\' has already been registered!'.encode())
 
-            elif command == 'urlpool':
+            elif command == 'reg':
+                pass
+
+            elif command == 'eval':
                 try:
-                    temp = getattr(urlpool, args[0])
-                    writer.write(str(temp(*args[1:])).encode())
-                except AttributeError as e:
+                    result = eval(args[0])
+                    writer.write(str(result).encode())
+                except Exception as e:
+                    writer.write(''.encode())
+                    print(RED(f'at qss eval: {str(e)}'.encode()))
+
+            elif command == 'exec':
+                try:
+                    result = exec(args[0])
+                    writer.write(result.encode())
+                except Exception as e:
                     writer.write(str(e).encode())
 
             # 转发send name msg

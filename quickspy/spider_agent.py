@@ -11,9 +11,9 @@ class SpiderAgent:
 
     async def run(self):
         self.qsparts = self.spider.qsparts
-        await self.qsparts.UrlPool.add_new_url('http://www.tujigu.com/s/40/')
+        self.qsparts.UrlPool.add_new_url('http://www.tujigu.com/s/40/')
         while True:
-            url = await self.qsparts.UrlPool.get_url()
+            url = self.qsparts.UrlPool.get_url()
             print(f'at spider_agent get_url from qss: {url}')
             if url == 'None':
                 break
@@ -27,13 +27,13 @@ class SpiderAgent:
                 print(f'backurl : {backurl}')
             except TimeoutError:
                 print(f'time out at spider {self.spider.spiderinfo.name : On download url {url}}')
-                await self.qsparts.UrlPool.add_new_url(url)
+                self.qsparts.UrlPool.add_new_url(url)
             except Exception as e:
                 print(repr(e))
 
             #回调url
             if backurl:
-                await self.qsparts.UrlPool.add_new_url(backurl)
+                self.qsparts.UrlPool.add_new_url(backurl)
             print(BLUE(f'at spideragent: result: {result}'))
         raise FinishedError
 

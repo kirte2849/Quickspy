@@ -67,7 +67,7 @@ class Messenger:
             self.writer.write(msg.encode(encoding))
             await self.writer.drain()
 
-    async def read(self, encoding='utf-8', size=1024):
+    async def read(self, encoding='utf-8', size=2048):
         if encoding is None:
             data = await self.reader.read(size)
             return data
